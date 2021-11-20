@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour {
     public int testColumn = 0;
     public int testType = 0;
 
+    //public int[,] roomSpawners = new int[16, 2] { { 0, 0 }, { 0, 1 }, { 0, 2 }, { 0, 3 }, { 1, 0 }, { 1, 1 }, { 1, 2 }, { 1, 3 }, { 2, 0 }, { 2, 1 }, { 2, 2 }, { 2, 3 }, { 3, 0 }, { 3, 1 }, { 3, 2 }, { 3, 3 } };
+
     // Use this for initialization
     void Start () {
 		
@@ -26,6 +28,10 @@ public class LevelManager : MonoBehaviour {
 		
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            testRow = Random.Range(0, 3);
+            testColumn = Random.Range(0, 3);
+            testType = Random.Range(1,4);
+            
             AddRoom(testRow, testColumn, testType);
         }
 	}
@@ -52,5 +58,9 @@ public class LevelManager : MonoBehaviour {
 
         // actually spawn it
         Instantiate(rooms[roomType], spawnPos, transform.rotation);
+    }
+    public void solutionPath()
+    {
+
     }
 }
